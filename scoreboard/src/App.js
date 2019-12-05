@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import Display from './components/Display.js';
+import Display from './components/Display';
+import Dashboard from './components/Dashboard';
+import { addTouchdown } from './helpers/addTouchdown';
 import logo from './logo.svg';
 import './App.css';
 
@@ -19,6 +21,13 @@ function App() {
         <h1>Scoreboard</h1>
         </header>
         <Display lionsScore={lionsScore} tigersScore={tigersScore} quarter={quarter}/>
+        <Dashboard lionsScore={lionsScore}
+          setLionsScore={setLionsScore} 
+          tigersScore={tigersScore}
+          setTigersScore={setTigersScore} 
+          addTouchdown={addTouchdown}
+          quarter={quarter} 
+          setQuarter={setQuarter}/>
         <footer>
           <a
             className="App-link"
