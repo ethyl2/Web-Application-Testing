@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Display = ({ lionsScore, tigersScore, quarter, balls, strikes }) => {
+const Display = ({ lionsScore, tigersScore, quarter, balls, strikes, outs }) => {
     return (
            <div className="container">
       <section className="scoreboard">
@@ -12,7 +12,7 @@ const Display = ({ lionsScore, tigersScore, quarter, balls, strikes }) => {
 
             <div className="home__score">{lionsScore}</div>
           </div>
-          <div className="timer">00:00</div>
+          <div className="timer">Inning: {quarter}</div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{tigersScore}</div>
@@ -32,8 +32,8 @@ const Display = ({ lionsScore, tigersScore, quarter, balls, strikes }) => {
             <div className="ballOn__value">0</div>
           </div>
           <div className="quarter">
-            <h3 className="quarter__title">Inning</h3>
-            <div className="quarter__value">{quarter}</div>
+            <h3 className="quarter__title">Outs</h3>
+            <div className="quarter__value">{outs}</div>
           </div>
         </div>
       </section>

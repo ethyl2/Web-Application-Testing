@@ -13,7 +13,9 @@ function App() {
   const [balls, setBalls] = useState(0);
   const [strikes, setStrikes] = useState(0);
 
-  if (quarter > 4) {
+  const [outs, setOuts] = useState(0);
+
+  if (quarter > 9) {
     setQuarter(1);
   }
 
@@ -57,9 +59,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Scoreboard</h1>
+        <h1>Baseball Scoreboard</h1>
         </header>
-        <Display lionsScore={lionsScore} tigersScore={tigersScore} quarter={quarter} balls={balls} strikes={strikes}/>
+        <Display lionsScore={lionsScore} tigersScore={tigersScore} quarter={quarter} balls={balls} strikes={strikes} outs={outs}/>
         <Dashboard 
           quarter={quarter} 
           setQuarter={setQuarter}

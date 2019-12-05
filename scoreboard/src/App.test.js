@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import App, { balls, reset } from './App';
 
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
@@ -49,3 +49,12 @@ test('App contains hit button', () => {
   expect(hitButton).toBeInTheDocument();
   expect(hitButton).toBeVisible();
 })
+
+/*
+test('Reset sets balls to 0', () => {
+  console.log(balls);
+  //reset();
+  const newNumBalls = balls;
+  //expect(newNumBalls).toBe(0);
+})
+*/
