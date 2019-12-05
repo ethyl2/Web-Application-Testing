@@ -28,11 +28,11 @@ const Display = ({ lionsScore, tigersScore, quarter, balls, strikes }) => {
             <div className="toGo__value">{strikes}</div>
           </div>
           <div className="ballOn">
-            <h3 className="ballOn__title">TBD</h3>
+            <h3 className="ballOn__title">Runs</h3>
             <div className="ballOn__value">0</div>
           </div>
           <div className="quarter">
-            <h3 className="quarter__title">TBD</h3>
+            <h3 className="quarter__title">Inning</h3>
             <div className="quarter__value">{quarter}</div>
           </div>
         </div>
