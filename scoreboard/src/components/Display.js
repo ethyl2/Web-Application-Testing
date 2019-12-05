@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Display = ({ lionsScore, tigersScore, quarter }) => {
+const Display = ({ lionsScore, tigersScore, quarter, balls, strikes }) => {
     return (
            <div className="container">
       <section className="scoreboard">
@@ -12,7 +12,7 @@ const Display = ({ lionsScore, tigersScore, quarter }) => {
 
             <div className="home__score">{lionsScore}</div>
           </div>
-          <div className="timer">00:03</div>
+          <div className="timer">00:00</div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{tigersScore}</div>
@@ -20,19 +20,19 @@ const Display = ({ lionsScore, tigersScore, quarter }) => {
         </div>
         <div className="bottomRow">
           <div className="down">
-            <h3 className="down__title">Down</h3>
-            <div className="down__value">3</div>
+            <h3 className="down__title">Balls</h3>
+            <div className="down__value">{balls}</div>
           </div>
           <div className="toGo">
-            <h3 className="toGo__title">To Go</h3>
-            <div className="toGo__value">7</div>
+            <h3 className="toGo__title">Strikes</h3>
+            <div className="toGo__value">{strikes}</div>
           </div>
           <div className="ballOn">
-            <h3 className="ballOn__title">Ball on</h3>
-            <div className="ballOn__value">21</div>
+            <h3 className="ballOn__title">TBD</h3>
+            <div className="ballOn__value">0</div>
           </div>
           <div className="quarter">
-            <h3 className="quarter__title">Quarter</h3>
+            <h3 className="quarter__title">TBD</h3>
             <div className="quarter__value">{quarter}</div>
           </div>
         </div>

@@ -10,8 +10,47 @@ function App() {
   const [tigersScore, setTigersScore] = useState(0);
   const [quarter, setQuarter] = useState(1);
 
+  const [balls, setBalls] = useState(0);
+  const [strikes, setStrikes] = useState(0);
+
   if (quarter > 4) {
     setQuarter(1);
+  }
+
+  const reset = () => {
+    console.log('Time to reset');
+    setBalls(0);
+    setStrikes(0);
+  }
+
+  const handleStrike = () => {
+    console.log('strike!');
+    setStrikes(strikes + 1);
+    if (strikes === 2) {
+      reset();
+    }
+  }
+
+  const handleBall = () => {
+    console.log('ball!');
+    setBalls(balls + 1);
+    if (balls === 3) {
+      reset();
+    }
+  }
+
+  const handleFoul = () => {
+    console.log('foul!');
+    if (strikes === 0) {
+      setStrikes(1);
+    } else if (strikes === 1) {
+      setStrikes(2);
+    }
+  }
+
+  const handleHit = () => {
+    console.log('hit!');
+    reset();
   }
 
   return (
@@ -20,14 +59,17 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Scoreboard</h1>
         </header>
-        <Display lionsScore={lionsScore} tigersScore={tigersScore} quarter={quarter}/>
-        <Dashboard lionsScore={lionsScore}
-          setLionsScore={setLionsScore} 
-          tigersScore={tigersScore}
-          setTigersScore={setTigersScore} 
-          addTouchdown={addTouchdown}
+        <Display lionsScore={lionsScore} tigersScore={tigersScore} quarter={quarter} balls={balls} strikes={strikes}/>
+        <Dashboard 
           quarter={quarter} 
-          setQuarter={setQuarter}/>
+          setQuarter={setQuarter}
+          
+          handleBall={handleBall}
+          handleStrike={handleStrike}
+          handleFoul={handleFoul}
+          handleHit={handleHit}
+          
+          />
         <footer>
           <a
             className="App-link"

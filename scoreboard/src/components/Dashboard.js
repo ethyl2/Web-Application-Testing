@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dashboard = ({lionsScore, setLionsScore, tigersScore, setTigersScore, addTouchdown, quarter, setQuarter}) => {
+const Dashboard = ({quarter, setQuarter, handleBall, handleStrike, handleFoul, handleHit}) => {
 
     return (
         <section className="buttons">
@@ -8,17 +8,31 @@ const Dashboard = ({lionsScore, setLionsScore, tigersScore, setTigersScore, addT
         <div className="homeButtons">
          
           <button
-            onClick={() => setLionsScore(addTouchdown(lionsScore))}
+            onClick={handleHit}
             className="homeButtons__touchdown"
           >
-            Lions Touchdown
+            Hit
           </button>
 
           <button
-            onClick={() => setLionsScore(lionsScore + 3)}
+            onClick={handleStrike}
             className="homeButtons__fieldGoal"
           >
-            Home Field Goal
+            Strike
+          </button>
+
+          <button
+            onClick={handleBall}
+            className="homeButtons__fieldGoal"
+          >
+            Ball
+          </button>
+
+          <button
+            onClick={handleFoul}
+            className="homeButtons__fieldGoal"
+          >
+            Foul
           </button>
 
         </div>
@@ -28,23 +42,10 @@ const Dashboard = ({lionsScore, setLionsScore, tigersScore, setTigersScore, addT
             onClick={() => setQuarter(quarter + 1)}
             className="gameButtons__changeQuarter"
           >
-            Change Quarter
+            Change Inning
           </button>
         </div>
-        <div className="awayButtons">
-          <button
-            onClick={() => setTigersScore(addTouchdown(tigersScore))}
-            className="awayButtons__touchdown"
-          >
-            Away Touchdown
-          </button>
-          <button
-            onClick={() => setTigersScore(tigersScore + 3)}
-            className="awayButtons__fieldGoal"
-          >
-            Away Field Goal
-          </button>
-        </div>
+       
       </section>
     )
 }
