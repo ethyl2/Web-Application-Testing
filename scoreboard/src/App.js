@@ -17,6 +17,7 @@ function App() {
   const [runs, setRuns] = useState(0);
   const [bases, setBases] = useState(0);
   const [message, setMessage] = useState('Play Ball!');
+  const [atBat, setAtBat] = useState('Lions');
 
   if (inning > 9) {
     setInning(1);
@@ -28,6 +29,14 @@ function App() {
     setStrikes(0);
   }
 
+  const checkTeam = () => {
+    if (outs < 2 || outs === 6) {
+      setAtBat('Lions');
+    } else {
+      setAtBat('Tigers');
+    }
+  }
+
   const handleStrike = () => {
     console.log('strike!');
     setMessage('Strike!');
@@ -35,6 +44,7 @@ function App() {
     if (strikes === 2) {
       reset();
       setOuts(outs + 1);
+      checkTeam();
     }
     if (outs > 5) {
       handleInning();
@@ -66,6 +76,8 @@ function App() {
     console.log(type);
     if (type === 0) {
       setMessage('Player doesn\'t make it to first base and is out.');
+      setOuts(outs + 1);
+      checkTeam();
     } else if (type === 1) {
       setMessage('Player makes it to first base.');
     } else if (type === 2) {
@@ -84,6 +96,7 @@ function App() {
     setInning(inning + 1);
     reset();
     setOuts(0);
+    checkTeam();
     setRuns(0);
   }
 
@@ -101,7 +114,7 @@ function App() {
           outs={outs}
           runs={runs}
           />
-
+        <h2>At Bat: {atBat}</h2>
         {message? <h3>{message}</h3>: null}
 
         <Dashboard 
