@@ -22,6 +22,28 @@ test('App displays count of strikes', () => {
   expect(strikesEl).toBeVisible();
 })
 
+test('App displays count of runs', () => {
+  const { getByText } = render(<App />);
+  const runsEl = getByText(/runs/i);
+  expect(runsEl).toBeInTheDocument();
+  expect(runsEl).toBeVisible();
+})
+
+test('App displays count of outs', () => {
+  const { getByText } = render(<App />);
+  const outsEl = getByText(/outs/i);
+  expect(outsEl).toBeInTheDocument();
+  expect(outsEl).toBeVisible();
+})
+/*
+test('App displays inning number', () => {
+  const { getByText } = render(<App />);
+  const inningEls = getAllByText(/inning/i);
+  expect(inningEls).toBeInTheDocument();
+  expect(inningEls).toBeVisible();
+})
+*/
+
 test('App contains strike button', () => {
   const { getByText } = render(<App />);
   const strikeButton = getByText(/^strike$/i);

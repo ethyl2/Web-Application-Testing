@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dashboard = ({quarter, setQuarter, handleBall, handleStrike, handleFoul, handleHit}) => {
+const Dashboard = ({inning, handleInning, handleBall, handleStrike, handleFoul, handleHit}) => {
 
     return (
         <section className="buttons">
@@ -39,7 +39,7 @@ const Dashboard = ({quarter, setQuarter, handleBall, handleStrike, handleFoul, h
 
         <div className="gameButtons">
           <button
-            onClick={() => setQuarter(quarter + 1)}
+            onClick={handleInning}
             className="gameButtons__changeQuarter"
           >
             Change Inning
