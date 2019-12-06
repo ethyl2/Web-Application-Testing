@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App, { balls, reset } from './App';
+import App from './App';
 
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
@@ -35,14 +35,17 @@ test('App displays count of outs', () => {
   expect(outsEl).toBeInTheDocument();
   expect(outsEl).toBeVisible();
 })
-/*
+
 test('App displays inning number', () => {
-  const { getByText } = render(<App />);
+  const { getAllByText } = render(<App />);
   const inningEls = getAllByText(/inning/i);
-  expect(inningEls).toBeInTheDocument();
-  expect(inningEls).toBeVisible();
+  for (let i=0; i<inningEls.length; i++) {
+    expect(inningEls[i]).toBeInTheDocument();
+    expect(inningEls[i]).toBeVisible();
+  }
+  
 })
-*/
+
 
 test('App contains strike button', () => {
   const { getByText } = render(<App />);
@@ -72,11 +75,3 @@ test('App contains hit button', () => {
   expect(hitButton).toBeVisible();
 })
 
-/*
-test('Reset sets balls to 0', () => {
-  console.log(balls);
-  //reset();
-  const newNumBalls = balls;
-  //expect(newNumBalls).toBe(0);
-})
-*/
